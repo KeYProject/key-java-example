@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven { url "https://dl.bintray.com/key/stable-snapshots" }
+}
+
+dependencies {
+    compile "key-project:key.core:2.7.0.20181006"
+    compile group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
+}
