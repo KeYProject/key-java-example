@@ -2,10 +2,9 @@ apply plugin: 'java'
 
 repositories {
     mavenCentral()
-    maven { url "https://dl.bintray.com/key/stable-snapshots" }
+    maven { url "https://git.key-project.org/api/v4/projects/35/packages/maven" }
 }
 
 dependencies {
-    compile "key-project:key.core:2.7.0.20181006"
-    compile group: 'org.antlr', name: 'antlr-runtime', version: '3.5.2'
+    compile "org.key_project:key.core:2.8.0"
 }
