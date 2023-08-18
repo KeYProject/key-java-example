@@ -1,10 +1,7 @@
 package org.key_project.example;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.key_project.util.collection.ImmutableSet;
 
@@ -46,15 +43,15 @@ public class Main {
          }
          // Set Taclet options
          ChoiceSettings choiceSettings = ProofSettings.DEFAULT_SETTINGS.getChoiceSettings();
-         HashMap<String, String> oldSettings = choiceSettings.getDefaultChoices();
-         HashMap<String, String> newSettings = new HashMap<String, String>(oldSettings);
+         Map<String, String> oldSettings = choiceSettings.getDefaultChoices();
+         HashMap<String, String> newSettings = new HashMap<>(oldSettings);
          newSettings.putAll(MiscTools.getDefaultTacletOptions());
          choiceSettings.setDefaultChoices(newSettings);
          // Load source code
          KeYEnvironment<?> env = KeYEnvironment.load(location, classPaths, bootClassPath, includes); // env.getLoadedProof() returns performed proof if a *.proof file is loaded
          try {
             // List all specifications of all types in the source location (not classPaths and bootClassPath)
-            final List<Contract> proofContracts = new LinkedList<Contract>();
+            final List<Contract> proofContracts = new LinkedList<>();
             Set<KeYJavaType> kjts = env.getJavaInfo().getAllKeYJavaTypes();
             for (KeYJavaType type : kjts) {
                if (!KeYTypeUtil.isLibraryClass(type)) {
